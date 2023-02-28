@@ -77,21 +77,34 @@ public class SWLPage extends BasePage {
 		if(dates[0].toString().equalsIgnoreCase("Thu")) {
 			driver.switchTo().frame("fullscreen-app-host");
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='radio' and @value='Happy']"))).click();
-			driver.switchTo().defaultContent();		}
+			driver.switchTo().defaultContent();		
+			}else if(dates[0].toString().equalsIgnoreCase("Tue")){
+				
+			}
 		return this;
 	}
 	
-	public SWLPage nextPageAfterHealthAndFeeling() {
+	public SWLPage nextPageAfterHealthAndFeeling() throws InterruptedException {
+		String[] dates = date.toString().split(" ");
 		driver.switchTo().frame("fullscreen-app-host");
+		if(dates[0].toString().equalsIgnoreCase("Tue")){
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-button-label no-focus-outline' and contains(text(),'Next')]"))).click();
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-button-label no-focus-outline' and contains(text(),'Next')]"))).click();
+		
+		}else {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-button-label no-focus-outline' and contains(text(),'Next')]"))).click();
+		}
 		driver.switchTo().defaultContent();
+		
 		return this;
 	}
 	
-	public SWLPage submit() {
+	public SWLPage submit() throws InterruptedException {
 		driver.switchTo().frame("fullscreen-app-host");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-button-label no-focus-outline' and contains(text(),'Submit')]"))).click();
 		driver.switchTo().defaultContent();
+		Thread.sleep(3000);
 		return this;
 	}
 }
