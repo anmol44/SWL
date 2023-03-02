@@ -67,20 +67,19 @@ public class SWLPage extends BasePage {
 	
 	public SWLPage nextPageAfterDataFill(WebDriver driver) {
 		//driver.switchTo().frame("fullscreen-app-host");
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='appmagic-button-container no-focus-outline' and @tabindex='22']"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-button-label no-focus-outline' and contains(text(),'Next') ]"))).click();
 		driver.switchTo().defaultContent();
 		return this;
 	}
 	
-	public SWLPage howIAmFeelingThisWeek() {
+	public SWLPage howIAmFeelingThisWeek() throws InterruptedException {
 		String[] dates = date.toString().split(" ");
 		if(dates[0].toString().equalsIgnoreCase("Thu")) {
 			driver.switchTo().frame("fullscreen-app-host");
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='radio' and @value='Happy']"))).click();
-			driver.switchTo().defaultContent();		
-			}else if(dates[0].toString().equalsIgnoreCase("Tue")){
-				
-			}
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='appmagic-radio-control'])[1]"))).click();
+			driver.switchTo().defaultContent();	}	
+		
 		return this;
 	}
 	
