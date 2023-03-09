@@ -34,7 +34,7 @@ public class BaseTest {
 	  Thread.sleep(100); 
 	 driver.quit(); 
 	  }
-	 
+	 //(//div[@class='appmagic-radio-control'])[1]
 	 
 	 
 	 
