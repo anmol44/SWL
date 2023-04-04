@@ -12,8 +12,8 @@ import factory.DriverManager;
 
 public class BaseTest {
 	
-	protected WebDriver driver;
-	protected JavascriptExecutor javascriptExecutor;
+	protected static  WebDriver driver;
+	protected static JavascriptExecutor javascriptExecutor;
 	
 	
 	@BeforeMethod
