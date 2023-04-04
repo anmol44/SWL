@@ -32,8 +32,8 @@ public class SWLPage extends BasePage {
 		System.out.println(date);
 		
 		driver.switchTo().frame("fullscreen-app-host");
-		wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='appmagic-button middle center readonly'])[1]"))));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='powerapps-icon no-focus-outline'])[1]"))).click();
+	//	wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='appmagic-button middle center readonly'])[1]"))));
+	//	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='powerapps-icon no-focus-outline'])[1]"))).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='appmagic-content-control-name appmagic-control-view canvasContentDiv _vst_' and @data-control-name='Button1_15']//following-sibling::button"))).click();
 		
 		return this;
